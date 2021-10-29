@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+.gradle
+.idea
+app/.cxx
+app/build
+app/src/main/libs
+app/src/main/jni

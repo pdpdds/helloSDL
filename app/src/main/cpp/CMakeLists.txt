@@ -13,8 +13,6 @@ include_directories(../jni/sdl2/include)
 include_directories(../jni/sdl2_ttf)
 include_directories(../jni/sdl2_image)
 include_directories(../jni/sdl2_mixer)
-include_directories(../jni/iconv/include)
-include_directories(../jni/iconv/include)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -38,10 +36,6 @@ set_target_properties(main PROPERTIES IMPORTED_LOCATION
 # default, you only need to specify the name of the public NDK library
 # you want to add. CMake verifies that the library exists before
 # completing its build.
-
-add_library(lib_iconv SHARED IMPORTED)
-set_target_properties(lib_iconv PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/${ANDROID_ABI}/libiconv.so)
 
 add_library(lib_sdl2 SHARED IMPORTED)
 set_target_properties(lib_sdl2 PROPERTIES IMPORTED_LOCATION
@@ -68,7 +62,6 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
         main
-        lib_iconv
         lib_sdl2
         lib_sdl2image
         lib_sdl2mixer

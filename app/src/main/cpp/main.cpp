@@ -8,10 +8,7 @@ int main(int argc, char** argv)
     SDL_Window *pWindow;
     SDL_Renderer *pRenderer;
 
-    int width = 320;
-    int height = 200;
-
-    if (SDL_CreateWindowAndRenderer(width, height, 0, &pWindow, &pRenderer) < 0)
+    if (SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_FULLSCREEN, &pWindow, &pRenderer) < 0)
     {
         printf("SDL_CreateWindowAndRenderer Error\n");
         return 0;
@@ -19,7 +16,7 @@ int main(int argc, char** argv)
 
     SDL_GetWindowSize(pWindow, &screen_w, &screen_h);
 
-    SDL_Surface *pHellowBMP = SDL_LoadBMP("gui-chan.bmp");
+    SDL_Surface *pHellowBMP = SDL_LoadBMP("helloworld.bmp");
     if (pHellowBMP == 0)
     {
         SDL_DestroyRenderer(pRenderer);
@@ -65,13 +62,13 @@ int main(int argc, char** argv)
 
         srcrect.x = (int)0;
         srcrect.y = (int)0;
-        srcrect.w = (int)100;
-        srcrect.h = (int)100;
+        srcrect.w = (int)507;
+        srcrect.h = (int)133;
 
         dstrect.x = (int)0;
         dstrect.y = (int)0;
-        dstrect.w = (int)width;
-        dstrect.h = (int)height;
+        dstrect.w = (int)screen_w;
+        dstrect.h = (int)screen_h;
 
         SDL_RenderCopy(pRenderer, pTexture, &srcrect, &dstrect);
         SDL_RenderPresent(pRenderer);
